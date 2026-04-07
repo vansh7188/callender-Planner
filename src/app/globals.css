@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f3efe7;
+  --foreground: #20252e;
+  --panel: rgba(255, 255, 255, 0.72);
+  --panel-strong: rgba(255, 255, 255, 0.86);
+  --border: rgba(33, 39, 52, 0.12);
+  --muted: rgba(33, 39, 52, 0.62);
+  --shadow: 0 24px 80px rgba(17, 24, 39, 0.12);
+  --ring: rgba(255, 255, 255, 0.5);
+  --font-sans: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 32%),
+    radial-gradient(circle at 85% 15%, rgba(255, 200, 120, 0.17), transparent 24%),
+    radial-gradient(circle at 15% 80%, rgba(92, 130, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #f7f3eb 0%, #efe8dc 100%);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.22;
+  mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+}
+
+::selection {
+  background: rgba(89, 119, 255, 0.22);
+}
+
+.text-display {
+  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Premium base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Improved typography hierarchy */
+p {
+  line-height: 1.55;
+}
+
+small {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
