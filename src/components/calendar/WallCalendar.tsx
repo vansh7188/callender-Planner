@@ -339,7 +339,7 @@ export function WallCalendar() {
   const canSaveRange = Boolean(range.start && range.end);
 
   return (
-    <section className="relative flex flex-col gap-5 rounded-[1.75rem] border border-white/55 bg-white/45 p-4 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-md sm:gap-6 sm:p-5 lg:p-6">
+    <section className="relative flex flex-col gap-4 rounded-[1.5rem] border border-white/55 bg-white/45 p-3 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-md sm:gap-6 sm:rounded-[1.75rem] sm:p-5 lg:p-6">
       {/* Decorative elements */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -364,7 +364,7 @@ export function WallCalendar() {
       />
 
       {/* Main content grid */}
-      <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)] lg:gap-6">
+      <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)] lg:gap-6">
         {/* Left column: Calendar section */}
         <motion.div
           initial={{ opacity: 0, x: -16 }}
@@ -382,7 +382,7 @@ export function WallCalendar() {
             selectedRangeLabel={selectedRangeLabel}
           />
 
-          <div className="grid gap-3">
+          <div className="grid gap-3 sm:gap-4">
             {/* Calendar grid */}
             <CalendarGrid
               monthLabel={monthLabel}
@@ -406,10 +406,10 @@ export function WallCalendar() {
           initial={{ opacity: 0, x: 16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.32, delay: 0.15 }}
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-4 sm:gap-5"
         >
           {/* Memory board card */}
-          <Card animated className="p-5 sm:p-6" hover>
+          <Card animated className="p-4 sm:p-6" hover>
             <div className="mb-4 border-b border-white/50 pb-4">
               <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Highlights</p>
               <h3 className="mt-2 text-lg font-bold text-slate-900">Memory board</h3>
@@ -450,7 +450,7 @@ export function WallCalendar() {
           </Card>
 
           {/* Quick actions card */}
-          <Card animated className="p-5 sm:p-6">
+          <Card animated className="p-4 sm:p-6">
             <p className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400">Actions</p>
             <QuickActions
               onClearSelection={clearSelection}

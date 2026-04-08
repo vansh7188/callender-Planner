@@ -1,60 +1,54 @@
 # Wall Calendar Planner
 
-Wall Calendar Planner is a polished, frontend-only Next.js calendar experience designed to feel like a premium physical wall calendar translated into a modern portfolio piece.
+A polished, frontend-only Next.js planner that turns a monthly calendar into a portfolio-style wall calendar experience. It combines range selection, notes, themes, and motion into a single responsive interface.
 
-## Features
+## What It Does
 
-- Hanging wall-calendar aesthetic with a hero image panel, binding accents, and soft shadowed surfaces.
-- Interactive month view with keyboard-friendly date range selection.
-- Theme system with Mountain Blue, Sunset Amber, and Forest Green palettes.
-- Monthly notes and range-linked notes with localStorage persistence.
-- Animated month transitions with Framer Motion.
-- Utility badges for selected days, weekend count, and whether the range includes today.
-- Mock holiday/event markers, quick actions, and a mini memory board.
-- Fully responsive layout for desktop, tablet, and mobile.
+- Displays a month view with keyboard-friendly range selection.
+- Lets you save monthly notes and notes tied to a selected date range.
+- Persists theme and notes in `localStorage`.
+- Includes mock events, quick actions, and summary cards for planning context.
+- Adapts to desktop, tablet, and mobile screens.
 
-## Setup
+## Tech Stack
 
-1. Install dependencies:
+- Next.js 15 App Router
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- date-fns
+- lucide-react
+
+## Getting Started
 
 ```bash
 npm install
-```
-
-2. Start the development server:
-
-```bash
 npm run dev
 ```
 
-3. Build for production:
+For a production check:
 
 ```bash
 npm run build
 ```
 
-## Architecture
+## Project Structure
 
-- `src/app/page.tsx` renders the single-page experience.
-- `src/components/calendar/*` contains the wall calendar shell, header, hero, grid, and range UI.
-- `src/components/notes/*` contains the notes composer and note cards.
+- `src/app/page.tsx` renders the main experience.
+- `src/components/calendar/*` contains the header, hero panel, month grid, and range summary.
+- `src/components/notes/*` contains the note composer and note cards.
 - `src/components/ui/*` contains quick actions and the theme switcher.
-- `src/hooks/useLocalStorage.ts` safely persists state after hydration.
-- `src/hooks/useCalendarRange.ts` handles range selection and summary calculations.
-- `src/lib/calendar.ts` builds month grids and range utilities.
-- `src/lib/mock-events.ts` provides sample event markers.
-- `src/types/index.ts` centralizes shared types.
+- `src/hooks/useCalendarRange.ts` handles range selection and summary logic.
+- `src/hooks/useLocalStorage.ts` manages browser persistence safely.
+- `src/lib/calendar.ts` builds the month grid.
+- `src/lib/mock-events.ts` supplies sample calendar events.
+- `src/types/index.ts` stores shared types.
 
-## Accessibility Notes
+## Interview Notes
 
-- Date cells are real buttons with strong focus states and ARIA labels.
-- Keyboard support includes arrow key navigation plus Enter/Space selection.
-- Color choices are paired with labels, not color alone, for important state.
-- The layout keeps tap targets comfortable on mobile.
-
-## Persistence Strategy
-
-- Theme choice, notes, and draft-friendly calendar state are stored in localStorage.
-- Monthly notes are keyed by `YYYY-MM`.
-- Range notes are keyed by a stable `start|end` range string.
-- Hydration-safe defaults ensure the app renders cleanly before localStorage is available.
+- The app is designed as a clean, single-page UI demo.
+- Date cells are real buttons with accessible labels and keyboard support.
+- State is hydration-safe, so the app renders cleanly before browser storage is available.
+- The layout is responsive and keeps the main calendar usable on smaller screens.
+- Production build has been verified with `npm run build`.

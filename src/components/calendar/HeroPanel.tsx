@@ -38,13 +38,13 @@ export function HeroPanel({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_50%)]" aria-hidden="true" />
 
       {/* Premium frame decoration */}
-      <div className="absolute left-5 right-5 top-4 flex justify-between opacity-65">
+      <div className="absolute left-3 right-3 top-3 flex justify-between opacity-65 sm:left-5 sm:right-5 sm:top-4">
         <span className="h-3.5 w-3.5 rounded-full border border-white/50 bg-white/60 shadow-pristine" />
         <span className="h-3.5 w-3.5 rounded-full border border-white/50 bg-white/60 shadow-pristine" />
         <span className="h-3.5 w-3.5 rounded-full border border-white/50 bg-white/60 shadow-pristine" />
       </div>
 
-      <div className="relative flex min-h-[12.5rem] flex-col justify-between p-5 text-white sm:min-h-[13.25rem] sm:p-6">
+      <div className="relative flex min-h-[11rem] flex-col justify-between p-4 text-white sm:min-h-[13.25rem] sm:p-6">
         {/* Theme badge */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
@@ -64,8 +64,8 @@ export function HeroPanel({
           transition={{ duration: 0.28, delay: 0.1 }}
           className="max-w-lg"
         >
-          <h2 className="text-display text-[2.15rem] font-bold leading-tight sm:text-[2.7rem]">{monthLabel}</h2>
-          <p className="mt-2 text-xs font-medium leading-relaxed text-white/80 sm:text-sm">{theme.heroCaption}</p>
+          <h2 className="text-display text-[1.85rem] font-bold leading-tight sm:text-[2.7rem]">{monthLabel}</h2>
+          <p className="mt-2 text-[11px] font-medium leading-relaxed text-white/80 sm:text-sm">{theme.heroCaption}</p>
         </motion.div>
 
         {/* Stat cards with glassmorphism */}
@@ -108,10 +108,10 @@ function StatCard({ label, value, accent }: { label: string; value: number; acce
       className="rounded-xl border border-white/15 bg-white/10 p-3 shadow-sm backdrop-blur-xl transition-all"
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-white/70">{label}</span>
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-white/70 sm:text-[11px]">{label}</span>
         <Star className="h-3.5 w-3.5" style={{ color: accent }} />
       </div>
-      <p className="mt-1.5 text-xl font-bold text-white">{value}</p>
+      <p className="mt-1.5 text-lg font-bold text-white sm:text-xl">{value}</p>
     </motion.div>
   );
 }

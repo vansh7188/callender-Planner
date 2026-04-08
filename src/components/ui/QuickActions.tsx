@@ -31,7 +31,7 @@ function ActionButton({
       whileTap={{ scale: 0.96 }}
       transition={{ duration: 0.2 }}
       className={joinClasses(
-        'group inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm font-semibold shadow-pristine transition-all duration-200',
+        'group inline-flex w-full items-center justify-center gap-2.5 rounded-full px-4 py-2.5 text-sm font-semibold shadow-pristine transition-all duration-200',
         destructive
           ? 'border border-rose-200 bg-rose-50/90 text-rose-700 hover:bg-rose-100 hover:border-rose-300 backdrop-blur-sm'
           : 'border border-white/40 bg-white/85 text-slate-700 hover:bg-white hover:border-white/60 backdrop-blur-sm'
@@ -57,7 +57,7 @@ export function QuickActions({
   compact = false
 }: QuickActionsProps) {
   const wrapper = compact
-    ? 'fixed inset-x-0 bottom-0 z-50 border-t border-white/50 bg-white/92 px-4 py-3.5 backdrop-blur-xl md:hidden'
+    ? 'fixed inset-x-0 bottom-0 z-50 border-t border-white/50 bg-white/92 px-3 pt-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] backdrop-blur-xl md:hidden'
     : 'grid gap-2.5 sm:grid-cols-2';
 
   return (
@@ -66,7 +66,7 @@ export function QuickActions({
         initial={compact ? { opacity: 0, y: 16 } : undefined}
         animate={compact ? { opacity: 1, y: 0 } : undefined}
         transition={compact ? { duration: 0.3, ease: 'easeOut' } : undefined}
-        className={joinClasses('flex flex-wrap gap-2', compact && 'mx-auto max-w-2xl justify-between', !compact && 'contents')}
+        className={joinClasses('grid gap-2', compact && 'grid-cols-2', !compact && 'contents')}
       >
         <ActionButton icon={<CalendarX2 className="h-4 w-4" />} label="Clear" onClick={onClearSelection} />
         <ActionButton icon={<CalendarCheck2 className="h-4 w-4" />} label="Jump to today" onClick={onJumpToToday} />

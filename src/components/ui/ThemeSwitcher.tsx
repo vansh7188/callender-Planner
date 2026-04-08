@@ -12,7 +12,7 @@ interface ThemeSwitcherProps {
 
 export function ThemeSwitcher({ themes, activeThemeId, onChange }: ThemeSwitcherProps) {
   return (
-    <div className="flex flex-wrap gap-2 rounded-full border border-white/50 bg-white/70 p-1 shadow-sm backdrop-blur-md">
+    <div className="flex max-w-full flex-nowrap gap-2 overflow-x-auto rounded-full border border-white/50 bg-white/70 p-1 shadow-sm backdrop-blur-md sm:flex-wrap sm:overflow-visible">
       {themes.map((theme) => {
         const active = theme.id === activeThemeId;
 
@@ -24,7 +24,7 @@ export function ThemeSwitcher({ themes, activeThemeId, onChange }: ThemeSwitcher
             aria-label={`Switch to ${theme.name} theme`}
             onClick={() => onChange(theme.id)}
             className={joinClasses(
-              'relative overflow-hidden rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-200',
+              'relative flex-shrink-0 overflow-hidden rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-all duration-200',
               active ? 'text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
             )}
             style={{ backgroundColor: active ? theme.accent : 'transparent' }}

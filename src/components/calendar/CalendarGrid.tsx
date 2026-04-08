@@ -30,13 +30,13 @@ export function CalendarGrid({
   onNavigateFocus
 }: CalendarGridProps) {
   return (
-    <section className="rounded-2xl border border-white/55 bg-white/80 p-5 shadow-soft backdrop-blur-lg sm:p-6">
+    <section className="rounded-2xl border border-white/55 bg-white/80 p-4 shadow-soft backdrop-blur-lg sm:p-6">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24 }}
-        className="mb-4 flex items-center justify-between border-b border-white/50 pb-3"
+        className="mb-4 flex flex-col gap-2 border-b border-white/50 pb-3 sm:flex-row sm:items-center sm:justify-between"
       >
         <div>
           <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Month</p>
@@ -52,7 +52,7 @@ export function CalendarGrid({
       </motion.div>
 
       {/* Weekday headers */}
-      <div className="mb-2.5 grid grid-cols-7 gap-2 px-0.5 text-center text-[11px] font-bold uppercase tracking-wider text-slate-500 sm:gap-2.5">
+      <div className="mb-2.5 grid grid-cols-7 gap-1 px-0.5 text-center text-[10px] font-bold uppercase tracking-wider text-slate-500 sm:gap-2.5 sm:text-[11px]">
         {weekdayLabels.map((weekday) => (
           <div key={weekday} className="py-1.5 font-semibold">
             {weekday}
@@ -67,7 +67,7 @@ export function CalendarGrid({
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -16 }}
         transition={{ duration: 0.28, ease: 'easeOut' }}
-        className="grid grid-cols-7 gap-1.5 sm:gap-2"
+        className="grid grid-cols-7 gap-1 sm:gap-2"
       >
         {days.map((day) => {
           const isSelectedStart = Boolean(rangeStart && day.dateKey === rangeStart);

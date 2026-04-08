@@ -48,14 +48,14 @@ export function NotesPanel({
   const rangeNote = notes.find((note) => note.kind === 'range' && note.rangeKey === selectedRangeKey);
 
   return (
-    <section className="grid gap-4 p-5 sm:gap-5 sm:p-6">
+    <section className="grid gap-4 p-4 sm:gap-5 sm:p-6">
       <motion.article
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24 }}
-        className="rounded-2xl border border-white/45 bg-white/82 p-5 shadow-pristine transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft"
+        className="rounded-2xl border border-white/45 bg-white/82 p-4 shadow-pristine transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft sm:p-5"
       >
-        <div className="mb-4 flex items-center justify-between gap-3 border-b border-white/55 pb-3">
+        <div className="mb-4 flex flex-col gap-3 border-b border-white/55 pb-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Memory board</p>
             <p className="mt-1 text-sm font-semibold text-slate-800">Current month focus</p>
@@ -90,15 +90,15 @@ export function NotesPanel({
           event.preventDefault();
           onSaveNote();
         }}
-        className="rounded-2xl border border-white/45 bg-white/82 p-5 shadow-pristine transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft"
+        className="rounded-2xl border border-white/45 bg-white/82 p-4 shadow-pristine transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft sm:p-5"
       >
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-white/55 pb-3">
+        <div className="mb-4 flex flex-col gap-3 border-b border-white/55 pb-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Notes composer</p>
             <p className="mt-1 text-sm font-semibold text-slate-800">Write and save</p>
           </div>
 
-          <div className="inline-flex rounded-full border border-white/60 bg-slate-50/85 p-1 text-xs font-semibold shadow-pristine">
+          <div className="inline-flex w-full rounded-full border border-white/60 bg-slate-50/85 p-1 text-xs font-semibold shadow-pristine sm:w-auto">
             {['monthly', 'range'].map((kind) => (
               <button
                 key={kind}
@@ -147,12 +147,12 @@ export function NotesPanel({
             )}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
             {draft.kind === 'range' && (
               <button
                 type="button"
                 onClick={onComposeRangeNote}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 sm:w-auto sm:py-1.5"
               >
                 <CalendarRange className="h-3.5 w-3.5" />
                 Use selection
@@ -162,7 +162,7 @@ export function NotesPanel({
             <motion.button
               type="submit"
               disabled={draft.kind === 'range' && !canSaveRange}
-              className="inline-flex items-center justify-center gap-2 rounded-full px-4.5 py-2.5 text-sm font-bold text-white shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full px-4.5 py-2.5 text-sm font-bold text-white shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               style={{ backgroundColor: theme.accent }}
             >
               <Sparkles className="h-4 w-4" />
@@ -178,12 +178,12 @@ export function NotesPanel({
         transition={{ duration: 0.24, delay: 0.1 }}
         className="rounded-2xl border border-white/45 bg-white/82 p-5 shadow-pristine transition-all duration-300 hover:-translate-y-0.5 hover:shadow-soft"
       >
-        <div className="mb-4 flex items-center justify-between gap-3 border-b border-white/55 pb-3">
+        <div className="mb-4 flex flex-col gap-3 border-b border-white/55 pb-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">All notes</p>
             <p className="mt-1 text-sm font-semibold text-slate-800">Monthly + range</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 self-start sm:self-auto">
             <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{notes.length}</span>
             <button
               type="button"

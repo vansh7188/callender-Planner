@@ -40,7 +40,7 @@ export function DayCell({
       onFocus={() => onFocus(day.dateKey)}
       onKeyDown={(event) => onKeyDown(event, day.dateKey)}
       className={joinClasses(
-        'group relative flex min-h-[5.7rem] flex-col items-start justify-between rounded-2xl border p-3.5 text-left outline-none transition-all duration-300 ease-out hover:shadow-soft active:scale-[0.985] sm:min-h-[6.2rem] sm:p-4',
+        'group relative flex min-h-[4.8rem] flex-col items-start justify-between rounded-2xl border p-2.5 text-left outline-none transition-all duration-300 ease-out hover:shadow-soft active:scale-[0.985] sm:min-h-[6.2rem] sm:p-4',
         day.inCurrentMonth
           ? 'bg-white/85 shadow-pristine hover:-translate-y-0.5'
           : 'bg-white/45 text-slate-400 shadow-none',
@@ -65,7 +65,7 @@ export function DayCell({
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
-          className="absolute right-2.5 top-2.5 rounded-full bg-white/20 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-md"
+          className="absolute right-2 top-2 rounded-full bg-white/20 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-md sm:right-2.5 sm:top-2.5 sm:px-2.5"
         >
           {isSelectedStart ? '●' : '●'}
         </motion.span>
@@ -73,7 +73,7 @@ export function DayCell({
 
       {/* Weekday label */}
       <span className={joinClasses(
-        'text-xs font-semibold uppercase tracking-wider',
+        'hidden text-xs font-semibold uppercase tracking-wider sm:block',
         day.inCurrentMonth ? 'text-slate-500' : 'text-slate-300',
         (isSelectedStart || isSelectedEnd) && 'text-white/90'
       )}>
@@ -82,13 +82,13 @@ export function DayCell({
 
       {/* Date and status */}
       <div className="w-full">
-        <span className={joinClasses('text-xl font-bold', day.inCurrentMonth ? 'text-slate-900' : 'text-slate-400', (isSelectedStart || isSelectedEnd) && 'text-white')}>
+        <span className={joinClasses('text-lg font-bold sm:text-xl', day.inCurrentMonth ? 'text-slate-900' : 'text-slate-400', (isSelectedStart || isSelectedEnd) && 'text-white')}>
           {day.label}
         </span>
 
         {/* Status badges */}
         {(day.isToday || day.isWeekend) && (
-          <div className="mt-2 flex flex-wrap gap-1.5">
+          <div className="mt-1.5 hidden flex-wrap gap-1.5 sm:flex sm:mt-2">
             {day.isToday && (
               <span className={joinClasses(
                 'inline-flex rounded-full text-[9px] font-bold uppercase tracking-wider px-2 py-1',
@@ -106,7 +106,7 @@ export function DayCell({
 
       {/* Event tags */}
       {day.events.length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-1.5 w-full">
+        <div className="mt-2 hidden w-full flex-wrap gap-1.5 sm:flex">
           {day.events.slice(0, 2).map((event) => (
             <span
               key={event.id}
